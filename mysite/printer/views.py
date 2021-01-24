@@ -15,7 +15,7 @@ def runCmd(request):
     open('fileToPrint.txt', 'wb').write(req_file_byte)
     
     # Print File
-    process = subprocess.run(['lp', 'fileToPrint.txt'], shell=True ,stdout=subprocess.PIPE, universal_newlines=True)
+    process = subprocess.run(['lp', 'fileToPrint.txt'], stdout=subprocess.PIPE, universal_newlines=True)
     # print(process.stdout)
 
     # Send Successful Response
