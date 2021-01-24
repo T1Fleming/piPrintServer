@@ -1,0 +1,5 @@
+/printer/print
+
+{
+    "fileToPrint": "SGVyZSBpcyBhIGxpbmUgdG8gcHJpbnQNCkhlcmUgaXMgdGhlIG5leHQgbGluZQ=="
+}

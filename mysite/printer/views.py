@@ -6,9 +6,6 @@ import base64
 from django.http import HttpResponse
 
 def runCmd(request):
-    process = subprocess.run(['dir'], shell=True ,stdout=subprocess.PIPE, universal_newlines=True)
-    # print(process.stdout)
-
     # Load File
     req_str = request.body.decode("utf-8")
     req_json = json.loads(req_str)
@@ -16,7 +13,13 @@ def runCmd(request):
 
     # Write File
     open('fileToPrint.txt', 'wb').write(req_file_byte)
-    return HttpResponse('Sent File!')
+    
+    # Print File
+    process = subprocess.run(['lp', 'fileToPrint.txt'], shell=True ,stdout=subprocess.PIPE, universal_newlines=True)
+    # print(process.stdout)
+
+    # Send Successful Response
+    return HttpResponse('File sent to printer!')
 
 def index(request):
     # return HttpResponse("Hit printer index")
